@@ -15,11 +15,7 @@ class CreateItemdetailsTable extends Migration
     {
         Schema::create('itemdetails', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('photo');
-            $table->integer('price');
-            $table->text('description');
-            $table->unsignedBigInteger('itemlist_id');  
+            $table->unsignedBigInteger('itemlist_id')->unique();  
             $table->foreign('itemlist_id')
               ->references('id')->on('itemlists')
               ->onDelete('cascade');

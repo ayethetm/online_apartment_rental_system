@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rent extends Model
 {
-    protected $fillable = ['date','itemdetail_id','user_id'];
+    protected $fillable = ['itemdetail_id','user_id',
+        'initial_rent_date','final_rent_date',
+        'duration','status'];
 
     // one to many relationship with User
     public function user()

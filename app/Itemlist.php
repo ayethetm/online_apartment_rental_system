@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Itemlist extends Model
 {
 	
-     protected $fillable = ['name','photo','price','description','category_id','township_id'];
+     protected $fillable = ['name','photo','price','description','status','category_id','township_id'];
 
     //one to many relationship with Category
      public function category()

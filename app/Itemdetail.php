@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Itemdetail extends Model
 {
-    protected $fillable = ['name','photo','price','description','itemlist_id','owner_id'];
+    protected $fillable = ['itemlist_id','owner_id'];
 
     //For an item of itemlist should have only one itemdetail 
      public function itemlist()

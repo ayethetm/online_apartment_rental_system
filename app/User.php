@@ -37,7 +37,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    //User can rent many rooms
+    //User can rent many apartments
     public function rents()
     {
         return $this->hasMany('App\Rent');

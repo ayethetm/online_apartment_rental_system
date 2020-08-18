@@ -15,7 +15,7 @@ class CreateRentsTable extends Migration
     {
         Schema::create('rents', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('itemdetail_id');  
+            $table->unsignedBigInteger('itemdetail_id')->unique(); 
             $table->foreign('itemdetail_id')
               ->references('id')->on('itemdetails')
               ->onDelete('cascade');
@@ -23,7 +23,10 @@ class CreateRentsTable extends Migration
             $table->foreign('user_id')
               ->references('id')->on('users')
               ->onDelete('cascade');
-            $table->date('date');
+            $table->date('initial_rent_date');
+            $table->date('final_rent_date');
+            $table->integer('duration');
+            $table->boolean('status');
             $table->timestamps();
            
         });
