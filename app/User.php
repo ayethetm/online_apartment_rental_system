@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'photo','phone','email', 'password',
     ];
 
     /**
@@ -37,11 +37,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    //User can rent many apartments
-    public function rents()
+    //Each user can post many rentals 
+    public function rental_lists()
     {
-        return $this->hasMany('App\Rent');
+        return $this->hasMany('App\Rental_list');
     }
+
 
 
 }

@@ -6,14 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Township extends Model
 {
-    protected $fillable=['name'];
+  protected $fillable=['name'];
 
-    // For a township can have many itemlists
-    // For search by township name
-    
-    public function itemlists()
+  // For a township can have many rental lists
+  
+  public function rental_lists()
     {
-        return $this->hasMany('App\Itemlist');
+        return $this->hasMany('App\Rental_list');
     }
 
 }
