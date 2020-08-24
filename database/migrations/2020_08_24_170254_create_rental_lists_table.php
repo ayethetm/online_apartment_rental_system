@@ -30,11 +30,11 @@ class CreateRentalListsTable extends Migration
             $table->foreign('township_id')
               ->references('id')->on('townships')
               ->onDelete('cascade');
-            $table->integer('contact_phone_no');
+            $table->string('contact_phone_no');
             $table->text('description');
-            $table->unsignedBigInteger('user_id');  
-            $table->foreign('user_id')
-              ->references('id')->on('users')
+            $table->unsignedBigInteger('owner_id');  
+            $table->foreign('owner_id')
+              ->references('id')->on('rent_ads_owners')
               ->onDelete('cascade');
             $table->timestamps();
         });

@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'photo','phone','email', 'password',
+         'email', 'password',
     ];
 
     /**
@@ -37,12 +37,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    //Each user can post many rentals 
-    public function rental_lists()
+    //one to one relationship with rent_ads_owner
+    public function rent_ads_owner()
     {
-        return $this->hasMany('App\Rental_list');
+        return $this->hasOne('App\Rent_ads_owner');
     }
 
-
-
+    //one to one relationship with rent_ads_owner
+    public function admin()
+    {
+        return $this->hasOne('App\Admin');
+    }
+    
 }
+
