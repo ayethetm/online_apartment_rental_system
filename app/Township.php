@@ -10,9 +10,9 @@ class Township extends Model
 
   // For a township can have many rental lists
   
-  public function rental_lists()
+  public function posts()
     {
-        return $this->hasMany('App\Rental_list');
+        return $this->hasMany('App\Post');
     }
 
 }

@@ -13,6 +13,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+// check authentication for backend
+Route::middleware('auth')->group(function()
+{
+
+	Route::resource('/admin','AdminController');
+
+	Route::resource('types','TypeController');
+
+	Route::resource('townships','TownshipController');
+
+	Route::resource('users','UserController');
 });
+
+// for frontenduser
+
+Route::get('/', function () {
+    return view('frontend.home');
+});
+
+Auth::routes();
+

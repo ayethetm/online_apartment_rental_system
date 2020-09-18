@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
+
 
 class User extends Authenticatable
 {
@@ -16,7 +18,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-         'email', 'password',
+
+         'name','profile','phone','address','email', 
+         'password',
     ];
 
     /**
@@ -37,17 +41,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    //one to one relationship with rent_ads_owner
-    public function rent_ads_owner()
+    //Each user can post many rentals 
+    public function posts()
     {
-        return $this->hasOne('App\Rent_ads_owner');
+        return $this->hasMany('App\Post');
     }
 
-    //one to one relationship with rent_ads_owner
-    public function admin()
-    {
-        return $this->hasOne('App\Admin');
-    }
+    // //one to one relationship with rent_ads_owner
+    // public function admin()
+    // {
+    //     return $this->hasOne('App\Admin');
+    // }
     
 }
 

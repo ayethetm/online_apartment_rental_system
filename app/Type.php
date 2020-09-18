@@ -11,8 +11,8 @@ class Type extends Model
     // For each type can contain many rental lists(types of houses) 
     // (eg.condo,mini condo,etc )
 
-    public function rental_lists()
+    public function posts()
     {
-        return $this->hasMany('App\Rental_list');
+        return $this->hasMany('App\Post');
     }
 }
