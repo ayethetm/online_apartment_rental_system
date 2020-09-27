@@ -49,6 +49,19 @@
                                     <a class="nav-link" href="{{route('posts.create')}}">ကြော်ငြာတင်မည်</a>
                                 </li>
 
+                                <!-- <li class="nav-item">
+                                  <a class="nav-link">
+                                    <form action="/postsearch" method="get">
+                                      <div class="input-group">
+                                        <input type="search" name="search" class="form-control">
+                                        <span class="input-group-prepand">
+                                          <button type="submit" class="btn" style="background-color:#E26241;color: white;">Search</button>
+                                        </span>
+                                      </div>
+                                    </form>
+                                  </a>
+                              </li> -->
+
                                 @guest
                                   <li class="nav-item">
                                       <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

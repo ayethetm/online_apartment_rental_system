@@ -40,6 +40,17 @@ class ExtraController extends Controller
         return view('backend.users.agencies',compact('users'));
     }
     
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $posts = DB::table('posts')
+            // ->join('types','posts.type_id','=','types.id')
+            // ->join('townships','posts.township_id','=','townships.id')
+            // ->join('users','posts.user_id','=','users.id')
+            ->where('posts.townships.townshipName','like','%'. $search.'%')->paginate(5);
+        return view('frontend.posts.index',['posts'=> $posts]);
+    }
+   
     
 
     // public function __construct($value='')

@@ -31,19 +31,7 @@ class PostController extends Controller
 
         return view('frontend.posts.index',compact('posts'));
     }
-
-
-    // public function postview()
-    // {
-    //     $posts=Post::all();
-
-    //     return view('backend.posts.index',compact('posts'));
-    // }
-
-    //can view by login user and can manage his posts
     
-    
-
     /**
      * Show the form for creating a new resource.
      *
@@ -57,6 +45,8 @@ class PostController extends Controller
         return view('frontend.userposts.create',compact('townships','types'));
         
     }
+
+    
 
     /**
      * Store a newly created resource in storage.
@@ -120,14 +110,6 @@ class PostController extends Controller
     public function show($id)
     {
          $post = Post::findOrFail($id);
-         // $post= DB::table('posts')
-         //    ->join('types','posts.type_id','=','types.id')
-         //    ->join('townships','posts.township_id','=','townships.id')
-         //    ->join('users','posts.user_id','=','users.id')
-         //    ->select('posts.*','types.typeName as posts_typeName','townships.townshipName as posts_townshipName','users.name as posts_name','users.phone as posts_phone','users.profile as posts_profile')
-         //    ->where('posts.id'== $id)
-         //    ->get();
-        
         return view('frontend.posts.detail',compact('post'));
     }
 

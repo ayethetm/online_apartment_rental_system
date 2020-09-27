@@ -87,6 +87,15 @@ class UserController extends Controller
     {
         //
     }
-    //additional services
-    // block user
+    
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $users = DB::table('users')
+            // ->join('types','posts.type_id','=','types.id')
+            // ->join('townships','posts.township_id','=','townships.id')
+            // ->join('users','posts.user_id','=','users.id')
+            ->where('name','like','%'. $search.'%')->paginate(5);
+        return view('backend.users.agencies',['users'=> $users]);
+    }
 }

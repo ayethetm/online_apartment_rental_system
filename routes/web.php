@@ -39,6 +39,10 @@ use Illuminate\Support\Facades\Route;
 	Route::get('/agencies', 'ExtraController@agency')->
 	name('agency');
 
+	Route::get('/search','UserController@search');
+
+	Route::get('/postsearch','ExtraController@search');
+
 
 
 

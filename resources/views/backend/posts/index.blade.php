@@ -5,9 +5,25 @@
 
 <div class="container">
   <div class="row my-3">
+    <h3 class="mb-3">Posts Table</h3>
+    <br>
+    <br>
+   <!--  <div class="col-md-3 mt-3 ml-auto">
+      <form action="/search" method="get">
+        <div class="input-group">
+          <input type="search" name="search" class="form-control">
+          <span class="input-group-prepand">
+            <button type="submit" class="btn" style="background-color:#E26241;color: white;">Search</button>
+          </span>
+        </div>
+        
+      </form>
+    </div>
+  </div>
+  <div class="row my-3"> -->
 	 <div class="col-md-12">
             <!-- <h2>Total:{{count($posts)}}</h2> -->
-            <h3 class="mb-3">Posts Table</h3>
+            
     	       <table class="table table-bordered shadow" style="width:100%;height: 100px;">
                 <thead style="background-color: #EA6B6F;color: white;">
                   <tr>

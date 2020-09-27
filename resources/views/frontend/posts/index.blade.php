@@ -78,7 +78,8 @@
                                         text-left">
                                             <i class="fas fa-fw fa-phone-alt">
                                                 </i> 
-                                            {{$post->user->phone1}} , {{$post->user->phone2}}
+                                            {{$post->user->phone1}} , 
+                                            {{$post->user->phone2}}
                                             <hr>
                                             
                                             <p>ကြော်ငြာနံပါတ် S- {{$post->id}}</p>

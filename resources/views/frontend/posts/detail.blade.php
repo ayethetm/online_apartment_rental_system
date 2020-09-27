@@ -30,7 +30,7 @@
                                 	fa-map-marker-alt text-white">
                                 	</i> 
 	                    		</button>
-	                    		{{$post->township->townshipName}} | Yangon
+	                    		{{$post->township->townshipName}} | ရန်ကုန်တိုင်းဒေသကြီး
 	                    		<br>
 	                    		<button class="btn btn-warning rounded-circle btn-sm mt-2"> 
                                 	<i class="fas fa-fw 
@@ -65,8 +65,8 @@
 				</div>
 				<div class="card-footer bg-white">
 				  	<div class="row">
-						<div class="col-md-4">
-							<p >{{$post->description}}</p>
+						<div class="col-md-8">
+							<p>{{$post->description}}</p>
 							<br>
 							<p class="font-weight-bold">
 								အကျယ်အဝန်း
@@ -82,6 +82,10 @@
 		                    </i>	
 							အလုံးစုံ ပြင်ဆင်ပြီး
 						</div>
+						<!-- <div class="col-md-4">
+							<img src="{{asset($post->user->profile)}}" 
+							class="img-fluid w-50 d-block my-5 ml-auto">
+						</div> -->
 					</div>
 				</div>
 			</div>
