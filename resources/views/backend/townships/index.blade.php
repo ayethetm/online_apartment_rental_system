@@ -34,47 +34,10 @@
   </div>
   <!-- end modal -->
 
-  <!-- start edit township modal -->
- <!-- <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3 class="modal-title" id="exampleModalLabel" 
-           style="color: white;">
-          Edit Township</h3>
-          
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-       
-           <form method="post"  
-            >
-              {{method_field('patch')}}
-              {{csrf_field()}}
-              <div class="modal-body">
-                <input type="hidden" name="name" id="id" value="">
-             <div class="form-group row">
-                  <div class="col-sm-8">
-                    <input type="text" class="form-control name"  
-                    name="name" >
-                  </div>
-                  <div class="col-sm-4">
-                    <input type="submit" name="btnsubmit" 
-                      value="Save" id="btnEdit" class="btn btn-block text-white" style="background-color: #EA6B6F;">   
-                  </div>
-            </div>
-          </form>
-
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <!-- end modal -->
-
 <div class="container">
   <div class="row my-3">
 	 <div class="col-md-12">
+      <h3>Township Table</h3>
     	     <a  href="#" data-target="#addModal" 
            data-toggle="modal" class="btn float-right btn-sm mb-3" 
            style="background-color:#E26241;color: white;">
@@ -96,22 +59,11 @@
                 <tr>
                   <input type="hidden" name="townshipid" value="{{$township->id}}" class="ser_del"> 
                   <td>{{$loop->index + 1 }}.</td>
-                  <td>{{$township->name}}</td>
+                  <td>{{$township->townshipName}}</td>
                   <td>
                     <a href="{{route('townships.edit',$township->id)}}" class="btn "  style="color: #0A97B0;">
                       <i class="fas fa-fw fa-edit"></i>
                     </a>
-                   <!--  <a  class="btn btn-warning editBtn" 
-                    data-id="{{$township->id}}" 
-                    data-name="{{$township->name}}"
-                    data-target="#editModal" 
-                    data-toggle="modal">
-                      <i class="fas fa-fw fa-pen"></i>
-                    </a> -->
-                    <!-- <button class="btn btn-fill btn-warning btnConfirmEdit" 
-                    type="submit" >
-                      <i class="fas fa-fw fa-pen"></i>
-                    </button> -->
                      <form method="post" 
                      action="{{route('townships.destroy',$township->id)}}" 
                       class="d-inline-block" >
@@ -128,9 +80,9 @@
           </table>
         </div>
       </div>
-       <div class="d-flex justify-content-center pg">
-            {!! $townships->links() !!}
-        </div>
+       <!-- <div class="d-flex justify-content-center pg">
+            {!! $townships ?? ''->links() !!}
+        </div> -->
     </div>
 @endsection
 

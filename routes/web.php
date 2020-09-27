@@ -14,24 +14,32 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-// check authentication for backend
-Route::middleware('auth')->group(function()
-{
 
-	Route::resource('/admin','AdminController');
+	Route::get('dashboard', 'BackendController@dashboard')->
+	name('dashboard');
+
+	Route::resource('users','UserController');
 
 	Route::resource('types','TypeController');
 
 	Route::resource('townships','TownshipController');
 
-	Route::resource('users','UserController');
-});
+	Route::resource('posts','PostController');
 
-// for frontenduser
 
-Route::get('/', function () {
-    return view('frontend.home');
-});
+	Auth::routes();
 
-Auth::routes();
+
+	Route::get('/postview', 'ExtraController@index')->
+	name('postview');
+
+	Route::get('/postviewbyuser', 'ExtraController@user')->
+	name('postviewbyuser');
+	
+	Route::get('/agencies', 'ExtraController@agency')->
+	name('agency');
+
+
+
+
 

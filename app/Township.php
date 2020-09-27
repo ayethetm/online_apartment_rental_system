@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Township extends Model
 {
-  protected $fillable=['name'];
+  protected $fillable=['townshipName'];
 
   // For a township can have many rental lists
   

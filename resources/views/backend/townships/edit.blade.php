@@ -1,65 +1,40 @@
 @extends('backendtemplate')
-@section('title','Edit Township Page')
+
+@section('title','Edit Township')
 
 @section('content')
 
-<div class="container-fluid">
+	<div class="container">
+		<h2 class="pb-4"> Edit Township </h2>
 
-	{{-- Must show related input errors --}}
-	@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-	@endif
-		<div class="modal fade" id="editModal" tabindex="-1" 
-		role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		    <div class="modal-dialog" role="document">
-		      <div class="modal-content">
-		        <div class="modal-header">
-		          <h3 class="modal-title text-dark" id="exampleModalLabel" 
-		          >
-		          Edit Township</h3>
-		          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-		            <span aria-hidden="true">×</span>
-		          </button>
-		        </div>
-		        <div class="modal-body">
-		           <form method="post" action="{{route('townships.update',$township->id)}}" >
-		           	@csrf
-					@method('PUT')
-		             <div class="form-group row">
-		                  <div class="col-sm-8">
-		                    <input type="text" class="form-control"  
-		                    name="name" value="{{$township->name}}">
-		                  </div>
-		                  <div class="col-sm-4">
-		                    <input type="submit" name="btnsubmit" 
-		                      value="Save" class="btn btn-block text-white" style="background-color: #EA6B6F;
-		                      color: white;">   
-		                  </div>
-		            </div>
-		          </form>
-		        </div>
-		      </div>
-		    </div>
+		{{-- Must show related input errors --}}
+
+		@if ($errors->any())
+		<div class="alert alert-danger">
+			<ul>
+				@foreach ($errors->all() as $error)
+				<li>{{ $error }}</li>
+				@endforeach
+			</ul>
 		</div>
-</div>
+		@endif
+		<form action="{{route('townships.update',$township->id)}}" 
+			method="post">
+			@csrf
+			@method('PUT')
+			<div class="form-group row {{ $errors->has('townshipName') ? 'has-error' : '' }}">
+				<label for="inputName" class="col-sm-2 col-form-label ml-5">Enter Township Name</label>
+				<div class="col-sm-4 ">
+					<input type="text" class="form-control" id="inputName" name="name" value="{{$township->townshipName}}">
+					<span class="text-danger">{{ $errors->first('townshipName') }}</span>
+				</div>
+				<div class="col-sm-2">
+					<input type="submit" name="btnsubmit" 
+		                      value="Update" class="btn btn-block text-white" style="background-color: #EA6B6F;
+		                      color: white;">   
+				</div>
+			</div>
+		</form>
+	</div>
 
-@endsection
-
-
-@section('script')
-
-<script type="text/javascript">
-
-  $(document).ready(function () {
-
-  	$("#editModal").modal('show');
-
-  });
-</script>
 @endsection

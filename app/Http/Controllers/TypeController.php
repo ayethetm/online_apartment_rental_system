@@ -40,7 +40,7 @@ class TypeController extends Controller
     public function store(Request $request)
     {
         $type=new Type;
-        $type->name=$request->name;
+        $type->typeName=$request->name;
         $type->save();
 
         //redirect
@@ -67,7 +67,8 @@ class TypeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $type = Type::find($id);
+        return view('backend.types.edit',compact('type'));
     }
 
     /**
@@ -79,7 +80,19 @@ class TypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            
+            'name' => 'required',
+        ]);
+
+        // Update Data
+        $type = Type::find($id);
+        
+        $type->typeName = $request->name;
+
+        $type->save();
+
+        return redirect()->route('types.index');
     }
 
     /**

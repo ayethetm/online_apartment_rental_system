@@ -34,7 +34,9 @@
         <div class="sidebar-brand-icon">
           <i class="fas fa-user-circle"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Admin Panel</div>
+        <div class="sidebar-brand-text mx-3">
+         
+         Admin</div>
       </a>
 
       <!-- Divider -->
@@ -42,7 +44,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="{{route('admin.index')}}">
+        <a class="nav-link" href="{{route('dashboard')}}">
          <i class="fas fa-fw fa-home"></i>
           Home</a>
       </li>
@@ -59,12 +61,12 @@
           Users</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="{{route('agency')}}">
           <i class="fas fa-fw fa-user-tie"></i>
           Agencies</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="{{route('postview')}}">
           <i class="fas fa-fw fa-list-alt"></i>
           Posts</a>
       </li>
@@ -94,7 +96,7 @@
 
         <!-- Topbar -->
         <nav class="navbar navbar-expand topbar mb-3 static-top shadow justify-content-center">
-          <img src="{{asset('backendtemplate/img/logo.png')}}">
+          <img src="{{asset('backendtemplate/img/logo.png')}}" class="img-fluid">
           </h2>
          
         </nav>
@@ -111,7 +113,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-          Copyright &copy; Aranoz | Online Apartment Rental System 2020
+          Copyright &copy; SB Admin 2 Template | <span class="font-weight-bold">Aranoz.</span> Online Apartment Rental System
           </div>
         </div>
       </footer>

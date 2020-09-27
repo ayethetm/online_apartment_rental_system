@@ -25,7 +25,8 @@ class TownshipController extends Controller
      */
     public function create()
     {
-        
+        $categories = Category::all();
+        return view('backend.subcategories.create',compact('categories'));
     }
 
     /**
@@ -37,7 +38,7 @@ class TownshipController extends Controller
     public function store(Request $request)
     {
         $township=new Township;
-        $township->name=$request->name;
+        $township->townshipName=$request->name;
         $township->save();
 
         //redirect 
@@ -86,19 +87,13 @@ class TownshipController extends Controller
 
         //Update Data
           $township=Township::find($id);
-          $township->name=$request->name;
+          $township->townshipName=$request->name;
          
           $township->save();
 
 
         //Redirect
           return redirect()->route('townships.index');
-        // $township=Township::find($request->townshipid);
-        // $township->name=$request->name;
-        // $township->save();
-        // // return back();
-
-        //  // dd($request->all());
     }
 
     /**

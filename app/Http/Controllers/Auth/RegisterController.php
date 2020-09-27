@@ -52,8 +52,10 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'profile' =>['required','file'],
-            'phone' => ['required','string','unique:users'],
+            'phone1' => ['required','string','unique:users'],
+            'phone2' => ['required','string','unique:users'],
             'address' => ['required','string','max:500'],
+            'role_id' => ['required'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -73,19 +75,13 @@ class RegisterController extends Controller
         $myprofile = 'backendtemplate/profile_img/'.$file_name;
 
 
-        //upload photo
-
-        // $imageName = time() .'.'.$data->profile->extension();
-
-        // $data->profile->move(public_path('backendtemplate/profile_img'),$imageName);
-
-        // $myfile='backendtemplate/profile_img/'.$imageName;
-
         return User::create([
             'name' => $data['name'],
             'profile' => $myprofile,
-            'phone' => $data['phone'],
+            'phone1' => $data['phone1'],
+            'phone2' => $data['phone2'],
             'address' => $data['address'],
+            'role_id' => $data['role_id'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);

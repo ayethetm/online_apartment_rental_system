@@ -8,7 +8,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h3 class="modal-title" id="exampleModalLabel" style="color: #2bae66;">
+          <h3 class="modal-title" id="exampleModalLabel">
           Add New Type</h3>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
@@ -24,7 +24,7 @@
                     </div>
                     <div class="col-sm-4">
                     <input type="submit" name="btnsubmit" 
-                    value="Add" class="btn btn-block text-white" style="background-color: #2bae66;">   
+                    value="Add" class="btn btn-block text-white" style="background-color: #EA6B6F;">   
                     </div>
                   </div>
         </form>
@@ -37,6 +37,7 @@
 <div class="container">
   <div class="row my-3">
    <div class="col-md-12 ">
+    <h3>Type Table</h3>
            <a  href="#" data-target="#addModal" 
            data-toggle="modal" class="btn float-right btn-sm mb-3" style="background-color:#E26241;color: white;">
              <i class="fas fa-fw fa-plus"></i>
@@ -58,7 +59,7 @@
                 <tr>
                   <input type="hidden" name="" value="{{$type->id}}" class="ser_del"> 
                   <td>{{$loop->index + 1 }}.</td>
-                  <td>{{$type->name}}</td>
+                  <td>{{$type->typeName}}</td>
                   <td>
                      <a href="{{route('types.edit',$type->id)}}" class="btn" style="color: #0A97B0;">
                        <i class="fas fa-fw fa-edit"></i>

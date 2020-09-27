@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use DB;
 
 class UserController extends Controller
 {
@@ -12,9 +13,12 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        $users=User::all();
+        $users = DB::table('users')
+                    ->where('role_id', '=', '2')
+                    ->get();
         return view('backend.users.index',compact('users'));
     }
 
@@ -83,4 +87,6 @@ class UserController extends Controller
     {
         //
     }
+    //additional services
+    // block user
 }

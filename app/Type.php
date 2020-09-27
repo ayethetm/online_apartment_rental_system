@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Type extends Model
 {
-    protected $fillable=['name'];
+    protected $fillable=['typeName'];
 
     // For each type can contain many rental lists(types of houses) 
     // (eg.condo,mini condo,etc )
