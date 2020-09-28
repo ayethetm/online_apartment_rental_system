@@ -41,7 +41,21 @@ use Illuminate\Support\Facades\Route;
 
 	Route::get('/search','UserController@search');
 
-	Route::get('/postsearch','ExtraController@search');
+	Route::get('/township_lanmadaw','ExtraController@township_lanmadaw')->name('township_lanmadaw');
+
+	Route::get('/township_latha','ExtraController@township_latha')->name('township_latha');
+
+	Route::get('/township_hlaing','ExtraController@township_hlaing')->name('township_hlaing');
+
+	Route::get('/apartment','ExtraController@apartment')->name('apartment');
+
+	Route::get('/condo','ExtraController@condo')->name('condo');
+
+	Route::get('/minicondo','ExtraController@minicondo')->name('minicondo');
+
+	Route::get('/house','ExtraController@house')->name('house');
+
+	
 
 
 

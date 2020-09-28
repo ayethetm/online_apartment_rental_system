@@ -43,10 +43,65 @@
                         <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{route('posts.index')}}">မူလ</a>
+                                    <a class="nav-link" href="{{route('posts.index')}}">
+                                      <i class="fas fa-fw fa-home" style="color:#CC8D33;"></i>
+                                    မူလ</a>
                                 </li>
+
+                                 <li class="nav-item dropdown">
+                                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                          <i class="fas fa-fw fa-city" style="color:#CC8D33;">
+                                          </i>
+                                          မြို့နယ်များ
+                                          <span class="caret">
+                                          </span>
+                                      </a>
+
+                                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                          <a href="{{route('township_lanmadaw')}}" class="dropdown-item">လမ်းမတော် 
+                                          </a>
+                                        
+                                         <a href="{{route('township_latha')}}" class="dropdown-item">
+                                             လသာ
+                                          </a>
+
+                                          <a href="{{route('township_hlaing')}}" class="dropdown-item">လှိုင် 
+                                          </a>
+
+                                      </div>
+                                  </li>
+
+                                 <li class="nav-item dropdown">
+                                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                          <i class="fas fa-fw fa-building" style="color:#CC8D33;">
+                                          </i>
+                                          အိမ်အမျိုးအစားများ
+                                          <span class="caret">
+                                          </span>
+                                      </a>
+
+                                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                          <a href="{{route('apartment')}}" class="dropdown-item">တိုက်ခန်း
+                                          </a>
+                                        
+                                          <a class="dropdown-item" href="{{ route('condo') }}">
+                                             ကွန်ဒို
+                                          </a>
+
+                                          <a href="{{route('minicondo')}}" class="dropdown-item">မီနီကွန်ဒို 
+                                          </a>
+                                        
+                                          <a class="dropdown-item" href="{{ route('house') }}">
+                                             လုံးချင်းအိမ်  
+                                          </a>
+
+                                      </div>
+                                  </li>
+
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{route('posts.create')}}">ကြော်ငြာတင်မည်</a>
+                                    <a class="nav-link" href="{{route('posts.create')}}">
+                                      <i class="fas fa-fw fa-desktop " style="color:#CC8D33;"></i>
+                                    ကြော်ငြာတင်မည်</a>
                                 </li>
 
                                 <!-- <li class="nav-item">
@@ -64,11 +119,11 @@
 
                                 @guest
                                   <li class="nav-item">
-                                      <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                      <a class="nav-link" href="{{ route('login') }}">{{ __('LOGIN') }}</a>
                                   </li>
                                   @if (Route::has('register'))
                                       <li class="nav-item">
-                                          <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                          <a class="nav-link" href="{{ route('register') }}">{{ __('SIGN UP') }}</a>
                                       </li>
                                   @endif
                               @else

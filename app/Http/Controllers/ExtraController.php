@@ -51,6 +51,14 @@ class ExtraController extends Controller
         return view('frontend.posts.index',['posts'=> $posts]);
     }
    
+    // public function searchbytownshipname(Request $request)
+    // {
+    //     $search = $request->get('search');
+    //     $posts = DB::table('posts')
+    //         ->join('townships','posts.township_id','=','townships.id')
+    //         ->where('townships.townshipName','like','%'. $search.'%');
+    //     return view('frontend.posts.index',['posts'=> $posts]);
+    // }
     
 
     // public function __construct($value='')
@@ -65,12 +73,72 @@ class ExtraController extends Controller
     // 	return view('frontend.posts.index',compact('posts'));
     // }
 
-    // public function postdetail($post)
-    // {
-    // 	$post = Post::find($post);
-    // 	return view('frontend.posts.detail',compact('post'));
-    	    
-   	// }
+    public function township_lanmadaw()
+    {
+       $posts = DB::table('posts')
+            ->select('posts.*')
+            ->where('posts.township_id', '=', '1')
+            ->get();
+        return view('frontend.posts.index',compact('posts'));
+    }
+
+    public function township_latha()
+    {
+       $posts = DB::table('posts')
+            ->select('posts.*')
+            ->where('posts.township_id', '=', '2')
+            ->get();
+        return view('frontend.posts.index',compact('posts'));
+    }
+
+    public function township_hlaing()
+    {
+       $posts = DB::table('posts')
+
+            ->select('posts.*')
+            ->where('posts.township_id', '=', '4')
+            ->get();
+        return view('frontend.posts.index',compact('posts'));
+    }
+
+    // types
+
+    public function apartment()
+    {
+       $posts = DB::table('posts')
+            ->select('posts.*')
+            ->where('posts.type_id', '=', '1')
+            ->get();
+        return view('frontend.posts.index',compact('posts'));
+    }
+
+    public function condo()
+    {
+       $posts = DB::table('posts')
+            ->select('posts.*')
+            ->where('posts.type_id', '=', '2')
+            ->get();
+        return view('frontend.posts.index',compact('posts'));
+    }
+
+    public function minicondo()
+    {
+       $posts = DB::table('posts')
+            ->select('posts.*')
+            ->where('posts.type_id', '=', '3')
+            ->get();
+        return view('frontend.posts.index',compact('posts'));
+    }
+
+     public function house()
+    {
+       $posts = DB::table('posts')
+            ->select('posts.*')
+            ->where('posts.type_id', '=', '4')
+            ->get();
+        return view('frontend.posts.index',compact('posts'));
+    }
+
 
     // public function post_ad()
     // {

@@ -47,58 +47,18 @@
                             <button class="btn btn-warning rounded-circle btn-sm ml-3"> <i class="fas fa-fw fa-bed text-white"></i>
                             </button>
                                 {{$post->bedrooms}}
+                            
                             <p class="text-info">{{$post->monthly_fees}}   
-                            သိန်း(ကျပ်) (တစ်လ)</p>
+                            သိန်း(ကျပ်) (တစ်လ)</p> 
+
                         </div>  
                         <div class="card-footer">
-                            <button class="btn btn-sm btn-warning ">
+                            <button class="btn btn-sm btn-warning" style="margin-left: 33px;" >
                                 <a href="{{route('posts.show',$post->id)}}">
-                                    <p class="text-white">အသေးစိတ်ကြည့်ရှုရန်</p>
+                                    <p class="text-white">အသေးစိတ်ကြည့်ပါ</p>
                                 </a>
                             </button>
-                                <a href="#" data-target="#adownercontactModal" 
-                                data-toggle="modal" class="btn btn-warning 
-                                font-weight-bold" >
-                                <i class="fas fa-fw fa-phone-alt text-white">
-                                </i>
-
-                                <div class="modal fade" id="adownercontactModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                      <div class="modal-content">
-                                        <div class="modal-header">
-                                          <h4 class="modal-title text-dark" id="exampleModalLabel" >
-                                            ကြော်ငြာနံပါတ် {{$post->id}} အတွက် ဆက်သွယ်ရန် ဖုန်းနံပါတ်
-                                          </h4>
-                                          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">×</span>
-                                          </button>
-                                        </div>
-
-                                        <div class="modal-body 
-                                        text-left">
-                                            <i class="fas fa-fw fa-phone-alt">
-                                                </i> 
-                                            {{$post->user->phone1}} , 
-                                            {{$post->user->phone2}}
-                                            <hr>
-                                            
-                                            <p>ကြော်ငြာနံပါတ် S- {{$post->id}}</p>
-                                            <p>{{$post->title}}</p>
-                                        </div>
-                                        <div class="modal-footer text-right">
-                                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden=
-                                                "true">
-                                                    <button class="btn btn-warning text-white font-weight-bold">
-                                                        ပိတ်ရန်
-                                                    </button>
-                                                </span>
-                                          </button>
-                                        </div>
-                                      </div>
-                                    </div>
-                                </div>
-                            </a>
+                                <!--  -->
                         </div>
                     </div>
                 </div>
