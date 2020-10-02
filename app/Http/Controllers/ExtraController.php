@@ -139,6 +139,32 @@ class ExtraController extends Controller
         return view('frontend.posts.index',compact('posts'));
     }
 
+      public function lowertohigherprice()
+    {
+       $posts = DB::table('posts')
+            ->select('posts.*')
+            ->orderBy('monthly_fees', 'asc')
+            ->get();
+        return view('frontend.posts.index',compact('posts'));
+    }
+
+    public function highertolowerprice()
+    {
+       $posts = DB::table('posts')
+            ->select('posts.*')
+            ->orderBy('monthly_fees', 'desc')
+            ->get();
+        return view('frontend.posts.index',compact('posts'));
+    }
+
+    // public function ads()
+    // {
+    //    $posts = DB::table('posts')
+    //             ->select('posts.*')
+    //             ->latest();
+    //     return view('frontend.posts.index',compact('posts'));
+    // }
+
 
     // public function post_ad()
     // {

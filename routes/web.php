@@ -55,6 +55,12 @@ use Illuminate\Support\Facades\Route;
 
 	Route::get('/house','ExtraController@house')->name('house');
 
+	Route::get('/lowertohigherprice','ExtraController@lowertohigherprice')->name('lowertohigherprice');
+
+	Route::get('/highertolowerprice','ExtraController@highertolowerprice')->name('highertolowerprice');
+
+	// Route::get('/ads','ExtraController@ads')->name('ads');
+
 	
 
 

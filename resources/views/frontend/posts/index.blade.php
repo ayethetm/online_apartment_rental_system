@@ -24,6 +24,7 @@
         </div>
     </div>
 </div>
+
 <!-- carousel section ends -->
 
 <!-- posts section  starts-->
@@ -58,7 +59,7 @@
                                     <p class="text-white">အသေးစိတ်ကြည့်ပါ</p>
                                 </a>
                             </button>
-                                <!--  -->
+                             
                         </div>
                     </div>
                 </div>

@@ -27,12 +27,13 @@
 
 <body>
     <!--::header part start::-->
+
     <header class="main_menu home_menu">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row align-items-center">
                 <div class="col-lg-12">
-                    <nav class="navbar navbar-expand-md ml-auto navbar-light" style="background-color: #F8CD5D;" >
-                        <a class="navbar-brand ml-5" href="{{route('posts.index')}}"> 
+                    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FDD75C;" >
+                        <a class="navbar-brand offset-md-1" href="{{route('posts.index')}}"> 
                             <img src="{{ asset('frontendtemplate/img/logo.png')}}" class="d-block w-75 h-25" alt="logo"> </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -50,9 +51,9 @@
 
                                  <li class="nav-item dropdown">
                                       <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                          <i class="fas fa-fw fa-city" style="color:#CC8D33;">
+                                         <!--  <i class="fas fa-fw fa-city" style="color:#CC8D33;"> -->
                                           </i>
-                                          မြို့နယ်များ
+                                          မြို့နယ်
                                           <span class="caret">
                                           </span>
                                       </a>
@@ -73,9 +74,9 @@
 
                                  <li class="nav-item dropdown">
                                       <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                          <i class="fas fa-fw fa-building" style="color:#CC8D33;">
+                                         <!--  <i class="fas fa-fw fa-building" style="color:#CC8D33;"> -->
                                           </i>
-                                          အိမ်အမျိုးအစားများ
+                                          အမျိုးအစား
                                           <span class="caret">
                                           </span>
                                       </a>
@@ -98,32 +99,49 @@
                                       </div>
                                   </li>
 
+
+                                   <li class="nav-item dropdown">
+                                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                          <i class="fas fa-fw fa-search" style="color:#CC8D33;">
+                                          </i>
+                                          ရှာဖွေရန်
+                                          <span class="caret">
+                                          </span>
+                                      </a>
+
+                                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                          <a href="{{route('lowertohigherprice')}}" class="dropdown-item">စျေးနှုန်းအနည်းမှအများ
+                                          </a>
+                                        
+                                          <a class="dropdown-item" href="{{ route('highertolowerprice') }}">
+                                             စျေးနှုန်းအများမှအနည်း
+                                          </a>
+
+                                        
+                                      </div>
+                                  </li>
+
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{route('posts.create')}}">
                                       <i class="fas fa-fw fa-desktop " style="color:#CC8D33;"></i>
                                     ကြော်ငြာတင်မည်</a>
                                 </li>
 
-                                <!-- <li class="nav-item">
-                                  <a class="nav-link">
-                                    <form action="/postsearch" method="get">
-                                      <div class="input-group">
-                                        <input type="search" name="search" class="form-control">
-                                        <span class="input-group-prepand">
-                                          <button type="submit" class="btn" style="background-color:#E26241;color: white;">Search</button>
-                                        </span>
-                                      </div>
-                                    </form>
-                                  </a>
-                              </li> -->
-
+                                
                                 @guest
                                   <li class="nav-item">
-                                      <a class="nav-link" href="{{ route('login') }}">{{ __('LOGIN') }}</a>
+                                      <a class="nav-link" href="{{ route('login') }}">
+                                        <i class="fas fa-fw fa-sign-in-alt" style="color:#CC8D33;">
+                                          </i>
+                                        {{ __('LOGIN') }}</a>
                                   </li>
                                   @if (Route::has('register'))
                                       <li class="nav-item">
-                                          <a class="nav-link" href="{{ route('register') }}">{{ __('SIGN UP') }}</a>
+                                          <a class="nav-link" href="{{ route('register') }}">
+                                            <i class="fas fa-fw fa-user-plus" style="color:#CC8D33;">
+                                          </i>
+
+                                          {{ __('SIGN UP') }}</a>
                                       </li>
                                   @endif
                               @else

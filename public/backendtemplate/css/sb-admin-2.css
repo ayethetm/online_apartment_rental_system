@@ -4046,15 +4046,11 @@ input[type="button"].btn-block {
 .nav {
   display: flex;
   flex-wrap: wrap;
-  padding-left: 0;
   margin-bottom: 0;
   list-style: none;
 }
 
-.nav-link {
-  display: block;
-  padding: 0.5rem 1rem;
-}
+
 
 .nav-link:hover, .nav-link:focus {
   text-decoration: none;

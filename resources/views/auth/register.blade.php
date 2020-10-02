@@ -1,13 +1,13 @@
-@extends('layouts.app')
+@extends('frontendtemplate')
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-5 shadow">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+           
+                <h2 class="my-5 text-center">Hello New Member</h2>
 
-                <div class="card-body">
+               
                     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
@@ -137,14 +137,13 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn mt-3 mb-3 btn-warning">
                                     {{ __('Register') }}
                                 </button>
                             </div>
                         </div>
                     </form>
-                </div>
-            </div>
+                
         </div>
     </div>
 </div>
