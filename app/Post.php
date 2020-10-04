@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $fillable = ['title','photo','monthly_fees','length','width','bedrooms','bathrooms','description','type_id','township_id','user_id'];
+    protected $fillable = ['title','photo','monthly_fees','length','width','bedrooms','bathrooms','description','type_id','township_id','user_id','status'];
 
 
     //one to many relationship with Type

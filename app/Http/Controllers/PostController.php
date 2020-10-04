@@ -27,7 +27,9 @@ class PostController extends Controller
     // can view ad posts by any user without login
     public function index()
     {
-        $posts=Post::all();
+        $posts=DB::table('posts')
+            ->where('status', '=', '0')
+            ->get();
 
         return view('frontend.posts.index',compact('posts'));
     }
@@ -66,6 +68,7 @@ class PostController extends Controller
             'bedrooms' => 'required',
             'bathrooms' => 'required',
             'description' => 'required',
+            'status'    => 'required',
 
         ]);
 
@@ -88,7 +91,8 @@ class PostController extends Controller
         $post->type_id = $request->type;
         $post->township_id = $request->township;
         $post->user_id =Auth::id();
-        // $item->subcategory_id = $request->subcategory;
+        $post->status = $request->status;
+        // 'role_id' => $data['role_id'],
 
         $post->save();
 
@@ -111,6 +115,7 @@ class PostController extends Controller
     {
          $post = Post::findOrFail($id);
         return view('frontend.posts.detail',compact('post'));
+
     }
 
     /**
@@ -150,6 +155,7 @@ class PostController extends Controller
             'description' => 'required',
             'type'=>'required',
             'township'=>'required',
+            'status' =>'required',
             
         ]);
 
@@ -183,6 +189,7 @@ class PostController extends Controller
         $post->description = $request->description;
         $post->type_id = $request->type;
         $post->township_id = $request->township;
+        $post->status = $request->status;
         // $post->user_id =Auth::id();
 
         $post->save();

@@ -1,10 +1,10 @@
 @extends('frontendtemplate')
-@section('title','Posts')
+@section('title','My Posts')
 
 @section('content')
 
-<div class="container">
-  <div class="row my-3">
+<div class="container spad">
+  <div class="row my-5">
 	 <div class="col-md-12">
             <!-- <h2>Total:{{count($posts)}}</h2> -->
     	       <table class="table table-bordered shadow" style="width:100%;height: 100px;">
@@ -16,15 +16,13 @@
 
                     <th scope="col" width="150px">Photo</th>
 
-                    <th scope="col">Monthly Price</th>
-          
-                    <th scope="col">Area</th>
+                    <th scope="col" width="100px">Price</th>
 
-                    <th scope="col">Bedrooms</th>
-
-                    <th scope="col">Bathrooms</th>
+                    <th scope="col" width="100px">Area </th>
           
-                    <th scope="col">Posted At</th>
+                    <th scope="col" width="150px">Date</th>
+
+                    <th scope="col">Privacy</th>
 
                     <th scope="col" colspan="2">Action</th>
                   </tr>
@@ -35,14 +33,25 @@
                   
                   <td>{{$loop->index + 1 }}.</td>
                   <td>{{$post->title}}</td>
-                  <td><img src="{{asset($post->photo)}}" class="img-fluid"></td>
-                  <td>{{$post->monthly_fees}}</td>
-                  <td>{{$post->length}}ft * {{$post->width}}ft </td>
-                  <td>{{$post->bedrooms}}</td>
-                  <td>{{$post->bathrooms}}</td>
-                  <td>{{$post->created_at}}
+                  <td><img src="{{asset($post->photo)}}" 
+                      class="img-fluid"></td>
+                  <td>{{$post->monthly_fees}} MMK
+                  </td>
+                  <td>{{$post->width}}  x  {{$post->length}} </td>
+                  <td>{{$post->updated_at}}
                   </td>
                   <td>
+                    @if($post->status == 0 )
+                    <span class="badge badge-info">Public</span>
+                    @else
+                    <span class="badge badge-warning">Only Me</span>
+                    @endif
+                  </td>
+                  <td>
+                    <a href="{{route('posts.show',$post->id)}}" 
+                      class="btn" style="color:#0A97B0;">
+                      <i class="fas fa-fw fa-eye"></i>
+                    </a>
                     <a href="{{route('posts.edit',$post->id)}}" class="btn "  style="color: #0A97B0;">
                       <i class="fas fa-fw fa-edit"></i>
                     </a>

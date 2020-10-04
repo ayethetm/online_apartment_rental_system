@@ -1,13 +1,13 @@
 @extends('frontendtemplate')
 
-@section('title','Post Page')
+@section('title','Post Create Page')
 
 @section('content')
 
 
 
-	<div class="container">
-		<div class="row justify-content-center">
+	<div class="container spad">
+		<div class="row justify-content-center mt-5">
 			<div class="col-md-8">
         		<div class="card o-hidden border-0 shadow-lg 
         		my-3">
@@ -15,7 +15,7 @@
         				<div class="row">
 	        				<div class="col-md-12">
 								<h3 class="text-gray-900 mb-4 
-								text-center mt-3 mb-5">Post Create Form</h3>
+								text-center my-5">Post Your Property</h3>
 
 								{{-- Must show related input errors --}}
 
@@ -32,7 +32,7 @@
 		enctype="multipart/form-data">
 		@csrf
 			<div class="form-group row{{ $errors->has('title') ? 'has-error' : '' }}">
-				<label for="title" class="col-sm-3 col-form-label ml-5">Title
+				<label for="title" class="col-sm-3 col-form-label ml-5">Title:
 				</label>
 					<div class="col-sm-6">
 					<input type="text" class="form-control" id="title" name="title">
@@ -40,7 +40,7 @@
 										</div>
 									</div>
 									<div class="form-group row {{ $errors->has('photo') ? 'has-error' : '' }}">
-										<label for="inputPhoto" class="col-sm-3 col-form-label ml-5">Photo</label>
+										<label for="inputPhoto" class="col-sm-3 col-form-label ml-5">Photo:</label>
 										<div class="col-sm-6">
 											<input type="file" id="photo" name="photo" 
 											class="d-block">
@@ -49,30 +49,30 @@
 										</div>
 									</div>
 									<div class="form-group row {{ $errors->has('monthly_fees') ? 'has-error' : '' }}">
-										<label for="monthly_fees" class="col-sm-3 col-form-label ml-5">Monthly Price</label>
+										<label for="monthly_fees" class="col-sm-3 col-form-label ml-5">Monthly Price:</label>
 										<div class="col-sm-6">
 											<input type="number" class="form-control" id="monthly_fees" name="monthly_fees">
 											<span class="text-danger">{{ $errors->first('monthly_fees') }}</span>
 										</div>
 									</div>
-									<div class="form-group row {{ $errors->has('length') ? 'has-error' : '' }}">
-										<label for="length" class="col-sm-3 ml-5 col-form-label">Length
-										</label>
-										<div class="col-sm-6">
-											<input type="number" class="form-control" id="length" name="length" value="0">
-											<span class="text-danger">{{ $errors->first('length') }}</span>
-										</div>
-									</div>
 									<div class="form-group row {{ $errors->has('width') ? 'has-error' : '' }}">
-										<label for="length" class="col-sm-3 ml-5 col-form-label">Width
+										<label for="width" class="col-sm-3 ml-5 col-form-label">Width:
 										</label>
 										<div class="col-sm-6">
 											<input type="number" class="form-control" id="width" name="width" value="0">
 											<span class="text-danger">{{ $errors->first('width') }}</span>
 										</div>
 									</div>
+									<div class="form-group row {{ $errors->has('length') ? 'has-error' : '' }}">
+										<label for="length" class="col-sm-3 ml-5 col-form-label">Length:
+										</label>
+										<div class="col-sm-6">
+											<input type="number" class="form-control" id="length" name="length" value="0">
+											<span class="text-danger">{{ $errors->first('width') }}</span>
+										</div>
+									</div>
 									<div class="form-group row {{ $errors->has('bedrooms') ? 'has-error' : '' }}">
-										<label for="length" class="col-sm-3 col-form-label ml-5">Bedroom
+										<label for="length" class="col-sm-3 col-form-label ml-5">Bedroom:
 										</label>
 										<div class="col-sm-6">
 											<input type="number" class="form-control" id="bedrooms" name="bedrooms" value="0">
@@ -80,7 +80,7 @@
 										</div>
 									</div>
 									<div class="form-group row {{ $errors->has('bathrooms') ? 'has-error' : '' }}">
-										<label for="length" class="col-sm-3 col-form-label ml-5">Bathroom
+										<label for="length" class="col-sm-3 col-form-label ml-5">Bathroom:
 										</label>
 										<div class="col-sm-6">
 											<input type="number" class="form-control" id="bathrooms" name="bathrooms" value="0">
@@ -88,7 +88,7 @@
 										</div>
 									</div>
 									<div class="form-group row {{ $errors->has('description') ? 'has-error' : '' }}">
-										<label for="description" class="col-sm-3 col-form-label ml-5">Description</label>
+										<label for="description" class="col-sm-3 col-form-label ml-5">Description:</label>
 										<div class="col-sm-6">
 											<textarea id="description" class="form-control" name="description"></textarea>
 											<span class="text-danger">
@@ -124,10 +124,28 @@
 										</div>
 									</div>
 									
-									
 									<div class="form-group row">
-										<div class="col-sm-3 mx-5">
-											<input type="submit" class="btn btn-warning btn-block" name="btnsubmit" value="Post">
+			                            <label for="township" class="col-sm-3 col-form-label ml-5">Choose Privacy:
+			                            </label>
+										
+			 
+			                            <div class="col-sm-6">
+			                                <select id="status"class="form-control @error('status') is-invalid @enderror"
+			                                name="status">
+			                                    <option value="0">Public</option>
+			                                    <option value="1">Only Me</option>
+			                                </select>
+			                                 @error('status')
+			                                    <span class="invalid-feedback" role="alert">
+			                                        <strong>{{ $message }}</strong>
+			                                    </span>
+			                                @enderror
+			                            </div>
+			                        </div>
+									
+									<div class="form-group row my-3">
+										<div class="col-sm-6 ">
+											<input type="submit" class="btn btn-block offset-8 font-weight-bold" name="btnsubmit" value="Post" style="background-color:#FF6A01;">
 										</div>
 									</div>
 								</form>

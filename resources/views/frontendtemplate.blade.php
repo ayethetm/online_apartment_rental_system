@@ -1,159 +1,104 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="zxx">
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Online Apartment Rental System- @yield('title')</title>
-     <link href="{{asset('frontendtemplate/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-    <link rel="icon" href="{{ asset('frontendtemplate/img/favicon.png')}}">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset('frontendtemplate/vendor/css/bootstrap.min.css')}}">
-    <!-- animate CSS -->
-    <link rel="stylesheet" href="{{ asset('frontendtemplate/vendor/css/animate.css')}}">
-    <!-- owl carousel CSS -->
-    <link rel="stylesheet" href="{{ asset('frontendtemplate/vendor/css/owl.carousel.min.css')}}">
-    <!-- font awesome CSS -->
-    <link rel="stylesheet" href="{{ asset('frontendtemplate/vendor/css/all.css')}}">
-    <!-- flaticon CSS -->
-    <link rel="stylesheet" href="{{ asset('frontendtemplate/vendor/css/flaticon.css')}}">
-    <link rel="stylesheet" href="{{ asset('frontendtemplate/vendor/css/themify-icons.css')}}">
-    <!-- font awesome CSS -->
-    
-    <!-- style CSS -->
-    <link rel="stylesheet" href="{{ asset('frontendtemplate/vendor/css/style.css')}}">
+	<title>@yield('title')</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Real estate HTML Template">
+	<meta name="keywords" content="real estate, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Favicon -->
+	<link href="{{asset('frontendtemplate/img/favicon.ico')}}" rel="shortcut icon"/>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900%7cRoboto:400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+
+ 
+	<!-- Stylesheets -->
+
+	<link rel="stylesheet" href="{{asset('frontendtemplate/css/bootstrap.min.css')}}"/>
+	<link rel="stylesheet" href="{{asset('frontendtemplate/css/font-awesome.min.css')}}"/>
+	<link rel="stylesheet" href="{{asset('frontendtemplate/css/slicknav.min.css')}}"/>
+	<link href="{{asset('frontendtemplate/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+
+	<!-- Main Stylesheets -->
+	<link rel="stylesheet" href="{{asset('frontendtemplate/css/style.css')}}"/>
+
+
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
 </head>
-
 <body>
-    <!--::header part start::-->
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
 
-    <header class="main_menu home_menu">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FDD75C;" >
-                        <a class="navbar-brand offset-md-1" href="{{route('posts.index')}}"> 
-                            <img src="{{ asset('frontendtemplate/img/logo.png')}}" class="d-block w-75 h-25" alt="logo"> </a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="menu_icon"><i class="fas fa-bars"></i></span>
-                        </button>
-
-                        <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{route('posts.index')}}">
-                                      <i class="fas fa-fw fa-home" style="color:#CC8D33;"></i>
-                                    မူလ</a>
+	<!-- Header Section -->
+	<header class="header-section">
+		<a href="index.html" class="site-logo">
+			<img src="{{asset('frontendtemplate/img/logo.png')}}" alt="">
+		</a>
+		<nav class="header-nav">
+			<ul class="main-menu">
+				<li><a href="{{route('posts.index')}}" class="active">Home</a></li>
+				<li><a href="#">Townships</a>
+					<ul class="sub-menu">
+						<li><a href="{{route('township_lanmadaw')}}">Lanmadaw</a></li>
+						<li><a href="{{route('township_latha')}}">Latha
+						</a></li>
+						<li><a href="{{route('township_hlaing')}}">Hlaing</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Types</a>
+					<ul class="sub-menu">
+						<li><a href="{{route('apartment')}}">Apartment
+						</a></li>
+						<li><a href="{{route('condo')}}">Condo
+						</a></li>
+						<li><a href="{{route('minicondo')}}">Mini Condo
+						</a></li>
+						<li><a href="{{route('house')}}">House
+						</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Prices</a>
+					<ul class="sub-menu">
+						<li><a href="{{route('lowertohigherprice')}}">Lower
+						</a></li>
+						<li><a href="{{route('highertolowerprice')}}">Higher
+						</a></li>
+					</ul>
+				</li>
+				
+			
+				@guest
+                    <li >
+                        <a  href="{{ route('login') }}">
+                            </i>
+                                {{ __('Login') }}</a>
+                            </li>
+                            @if (Route::has('register'))
+                                <li>
+                                    <a  href="{{ route('register') }}">
+                                          {{ __('Join Us') }}</a>
                                 </li>
-
-                                 <li class="nav-item dropdown">
-                                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                         <!--  <i class="fas fa-fw fa-city" style="color:#CC8D33;"> -->
-                                          </i>
-                                          မြို့နယ်
-                                          <span class="caret">
-                                          </span>
-                                      </a>
-
-                                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                          <a href="{{route('township_lanmadaw')}}" class="dropdown-item">လမ်းမတော် 
-                                          </a>
-                                        
-                                         <a href="{{route('township_latha')}}" class="dropdown-item">
-                                             လသာ
-                                          </a>
-
-                                          <a href="{{route('township_hlaing')}}" class="dropdown-item">လှိုင် 
-                                          </a>
-
-                                      </div>
-                                  </li>
-
-                                 <li class="nav-item dropdown">
-                                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                         <!--  <i class="fas fa-fw fa-building" style="color:#CC8D33;"> -->
-                                          </i>
-                                          အမျိုးအစား
-                                          <span class="caret">
-                                          </span>
-                                      </a>
-
-                                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                          <a href="{{route('apartment')}}" class="dropdown-item">တိုက်ခန်း
-                                          </a>
-                                        
-                                          <a class="dropdown-item" href="{{ route('condo') }}">
-                                             ကွန်ဒို
-                                          </a>
-
-                                          <a href="{{route('minicondo')}}" class="dropdown-item">မီနီကွန်ဒို 
-                                          </a>
-                                        
-                                          <a class="dropdown-item" href="{{ route('house') }}">
-                                             လုံးချင်းအိမ်  
-                                          </a>
-
-                                      </div>
-                                  </li>
-
-
-                                   <li class="nav-item dropdown">
-                                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                          <i class="fas fa-fw fa-search" style="color:#CC8D33;">
-                                          </i>
-                                          ရှာဖွေရန်
-                                          <span class="caret">
-                                          </span>
-                                      </a>
-
-                                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                          <a href="{{route('lowertohigherprice')}}" class="dropdown-item">စျေးနှုန်းအနည်းမှအများ
-                                          </a>
-                                        
-                                          <a class="dropdown-item" href="{{ route('highertolowerprice') }}">
-                                             စျေးနှုန်းအများမှအနည်း
-                                          </a>
-
-                                        
-                                      </div>
-                                  </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{route('posts.create')}}">
-                                      <i class="fas fa-fw fa-desktop " style="color:#CC8D33;"></i>
-                                    ကြော်ငြာတင်မည်</a>
-                                </li>
-
-                                
-                                @guest
-                                  <li class="nav-item">
-                                      <a class="nav-link" href="{{ route('login') }}">
-                                        <i class="fas fa-fw fa-sign-in-alt" style="color:#CC8D33;">
-                                          </i>
-                                        {{ __('LOGIN') }}</a>
-                                  </li>
-                                  @if (Route::has('register'))
-                                      <li class="nav-item">
-                                          <a class="nav-link" href="{{ route('register') }}">
-                                            <i class="fas fa-fw fa-user-plus" style="color:#CC8D33;">
-                                          </i>
-
-                                          {{ __('SIGN UP') }}</a>
-                                      </li>
-                                  @endif
-                              @else
-                              <li class="nav-item dropdown">
-                                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                          {{ Auth::user()->name }} <span class="caret"></span>
-                                      </a>
-
-                                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                          <a href="{{route('postviewbyuser')}}" class="dropdown-item">My Posts</a>
-                                        
-                                          <a class="dropdown-item" href="{{ route('logout') }}"
+                            @endif
+                @else
+                <li>
+                                    <a href="#">
+                                        {{ Auth::user()->name }}
+                                    </a>
+                                      	<ul class="sub-menu">
+                                      		<li>
+                                      			 <a href="{{route('postviewbyuser')}}">My Posts</a>
+                                      		</li>
+                                         
+                                        	<li>
+                                        		<a href="{{ route('logout') }}"
                                              onclick="event.preventDefault();
                                                            document.getElementById('logout-form').submit();">
                                               {{ __('Logout') }}
@@ -162,52 +107,105 @@
                                           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                               @csrf
                                           </form>
+                                        	</li>
+                                        </ul>
+                                    </li>
+                @endguest
+        	</ul>
+                          
+			<div class="header-right">
+				<div class="user-panel">
+					<a href="{{route('posts.create')}}" class="post">Post Property</a>
+				</div>
+			</div>
+		
+		</nav>
+	</header>
+	<!-- Header Section end -->
 
-                                      </div>
-                                  </li>
-                              @endguest
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        
-    </header>
-    <!-- Header part end-->
+	<!-- content Section starts -->
 
-   
-   
-     @yield('content')
- 
+	  @yield('content')
 
-    <!--::footer_part start::-->
-    <footer class="copyright_part">
-        <div >
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="copyright_text text-center">
-                            <P> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by Colorlib</a>
-                            </P>
-                        </div>
-                    </div>
-                  
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!--::footer_part end::-->
+	<!-- content Section ends -->
 
-    <!-- jquery plugins here-->
-    <script src="{{ asset('frontendtemplate/vendor/js/jquery-1.12.1.min.js')}}"></script>
-    <!-- popper js -->
-   <!--  <script src="{{ asset('frontendtemplate/vendor/js/popper.min.js')}}"></script> -->
-    <!-- bootstrap js -->
-    <script src="{{ asset('frontendtemplate/vendor/js/bootstrap.min.js')}}">
-    </script>
-  
-    <script src="{{ asset('frontendtemplate/vendor/js/custom.js')}}"></script>
-</body>
+	<!-- Footer Section -->
+	<footer class="footer-section">
+		<div class="container">
+			<div class="row text-white">
+				<div class="col-lg-4">
+					<div class="footer-widger">
+						<div class="about-widget">
+							<div class="aw-text">
+								<img src="{{asset('frontendtemplate/img/footer-logo.png')}}" alt="">
+								<p>Donec eget efficitur ex. Donec eget dolor vitae eros feugiat tristique id vitae massa. Proin vulputate cong ue rutrum. Fusce lobortis a enim eget tempus. </p>
+								<a href="#" class="site-btn">we are hiring</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-6">
+					<div class="footer-widger">
+						<h2>Company</h2>
+						<ul>
+							<li><a href="#">About us</a></li>
+							<li><a href="#">Services</a></li>
+							<li><a href="#">Clients</a></li>
+							<li><a href="#">Testimonials</a></li>
+							<li><a href="#">Carrers</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-6">
+					<div class="footer-widger">
+						<h2>For Buyers</h2>
+						<ul>
+							<li><a href="#">Buy with us</a></li>
+							<li><a href="#">Papers</a></li>
+							<li><a href="#">Clients</a></li>
+							<li><a href="#">Testimonials</a></li>
+							<li><a href="#">Homes</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-6">
+					<div class="footer-widger">
+						<h2>For Sellers</h2>
+						<ul>
+							<li><a href="#">Seel With us</a></li>
+							<li><a href="#">What do You Need</a></li>
+							<li><a href="#">Clients</a></li>
+							<li><a href="#">Testimonials</a></li>
+							<li><a href="#">Guideline</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-6">
+					<div class="footer-widger">
+						<h2>For Renters</h2>
+						<ul>
+							<li><a href="#">Rent with us</a></li>
+							<li><a href="#">Guidelines</a></li>
+							<li><a href="#">Apartments</a></li>
+							<li><a href="#">Flats</a></li>
+							<li><a href="#">Houses</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+		</div>
+	</footer>
+	<!-- Footer Section end -->
+	
+	<!--====== Javascripts & Jquery ======-->
+	<script src="{{asset('frontendtemplate/js/jquery-3.2.1.min.js')}}"></script>
+	<script src="{{asset('frontendtemplate/js/bootstrap.min.js')}}"></script>
+	<script src="{{asset('frontendtemplate/js/jquery.slicknav.min.js')}}"></script>
+	<script src="{{asset('frontendtemplate/js/jquery.magnific-popup.min.js')}}"></script>
+	<script src="{{asset('frontendtemplate/js/main.js')}}"></script>
 
+	</body>
 </html>
